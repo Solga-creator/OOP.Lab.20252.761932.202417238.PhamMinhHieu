@@ -1,0 +1,13 @@
+1: What happens if users choose 'Cancel'?
+
+Khi dùng JOptionPane.showConfirmDialog mặc định (Yes / No / Cancel), nếu người dùng bấm Cancel:
+- Hàm trả về JOptionPane.CANCEL_OPTION (giá trị 2).
+- Nếu đóng hộp thoại bằng nút X trên cửa sổ, thường trả về JOptionPane.CLOSED_OPTION (giá trị -1).
+
+Trong ChoosingOption.java hiện tại, điều kiện chỉ phân biệt YES_OPTION với phần còn lại, nên Cancel (và đóng cửa) cũng hiển thị "No" — đó là hiển thị gộp, không phải nghĩa logic là "No".
+
+2: How to customize the options (e.g. only Yes/No, or 'I do' / 'I don't')?
+
+- Chỉ hai nút Yes và No (không có Cancel): dùng overload showConfirmDialog có tham số optionType, ví dụ JOptionPane.YES_NO_OPTION.
+- Nút tùy chỉnh chữ (ví dụ "I do", "I don't"): dùng JOptionPane.showOptionDialog, truyền mảng Object[] làm nhãn các nút; giá trị trả về là chỉ số nút được chọn, hoặc JOptionPane.CLOSED_OPTION nếu đóng dialog.
+
