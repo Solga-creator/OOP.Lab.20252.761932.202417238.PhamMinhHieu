@@ -1,0 +1,7 @@
+
+SECTION 8 - Câu hỏi: Nếu bạn tạo một constructor để tạo DVD theo title, rồi tạo một constructor khác để tạo DVD theo category, thì Java có cho phép không?
+
+Trả lời:
+Không, nếu cả hai constructor đều chỉ có một tham số kiểu String. Trong Java, các constructor được nạp chồng (overload) phải khác nhau về số lượng hoặc kiểu của tham số; tên tham số không được tính vào chữ ký (signature) của constructor. Vì vậy DigitalVideoDisc(String title) và DigitalVideoDisc(String category) bị coi là cùng một constructor, trình biên dịch sẽ báo lỗi trùng constructor (duplicate constructor).
+
+Để phân biệt được, bạn phải thay đổi danh sách tham số (ví dụ thêm tham số, dùng kiểu khác nhau), hoặc dùng factory method / phương thức static với tên rõ ràng thay vì hai constructor (String) trùng ý nghĩa về mặt kỹ thuật.
